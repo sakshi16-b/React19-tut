@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 
 function Counter({ count, data }) {
-  const handleData = () => {
-    console.log("call once");
-  };
-
-  const handleCounter = () => {
-    console.log("call once");
-  };
   useEffect(() => {
-    handleCounter();
+    console.log("mounting phase only");
   }, []);
+
   useEffect(() => {
-    handleData();
+    console.log("update phase only");
   }, [data]);
+
+  useEffect(() => {
+    return () => {
+      console.log("unmounting phase only");
+    };
+  }, []);
 
   return (
     <>
