@@ -1,19 +1,119 @@
-import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import Counter from "./Counter";
-
 function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState(0);
-
+  const cardStyle = {
+    border: "1px solid #cccccc#3b",
+    width: "200px",
+    boxShadow: "1px 2px 3px 1px #cccccc57",
+    margin: "10px",
+  };
   return (
     <>
-      <h1>Handle props side Effect with useEffect Hook </h1>
-      <Counter count={count} data={data} />
-      <button onClick={() => setCount(count + 1)}>Counter</button>
-      <button onClick={() => setData(data + 1)}>Data</button>
+      <h1 style={{ color: "red" }}>Inline Style in React</h1>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+        <div style={cardStyle}>
+          <img
+            style={{ width: "200px" }}
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="img"
+          />
+          <div style={{ padding: "5px" }}>
+            <h4>Sakshi Bisht</h4>
+            <p>Software Developer</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
