@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Skills from "./Skills";
+import User from "./User";
 
 function App() {
-  const userNames = ["Anil", "Sam", "Peter", "Bruce"];
-
   const userData = [
     {
       name: "Anil",
@@ -35,10 +34,7 @@ function App() {
       <h1>Loop in jsx using map function</h1>
       {userData.map((user, index) => (
         <div style={{ textAlign: "center" }}>
-          <p key={index}> {user.id}</p>
-          <p key={index}> {user.name}</p>
-          <p key={index}> {user.age}</p>
-          <p key={index}> {user.email}</p>
+          <User user={user} />
         </div>
       ))}
     </>
