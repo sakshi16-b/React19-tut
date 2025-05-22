@@ -1,20 +1,32 @@
-import { useCallback, useState } from "react";
-import ChildA from "./ChildA";
+import { useMemo, useState } from "react";
 
 function App() {
   const [add, setAdd] = useState(0);
-  //Learning Function Will rerender b/c this process referential equality it will new function has been created in rerendering
-  //so to prevent this we use hook called useCallback
-  const Learning = useCallback(() => {
-    console.log("some operation");
-  }, []);
+  const [minus, setMinus] = useState(100);
+  //useMemo hook return memoised value whereas useCallback return memoised function.
+  const multilpication = useMemo(
+    function multiply() {
+      console.log("****");
+      return add * 10;
+    },
+    [add]
+  );
 
   return (
     <>
-      <h1>Learning useCallback</h1>
+      <h1>Learning useMemo Hook</h1>
       <button onClick={() => setAdd(add + 1)}>Add</button>
+      {multilpication}
+      <br />
+      <br />
       {add}
-      <ChildA Learning={Learning} />
+      <br />
+      <br />
+      <button onClick={() => setMinus(minus - 1)}>Subtraction</button>
+      <br />
+      <br />
+      <br />
+      {minus}
     </>
   );
 }
