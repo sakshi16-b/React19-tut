@@ -1,21 +1,20 @@
-import { useState } from "react";
-import Clock from "./Clock";
+import { useCallback, useState } from "react";
+import ChildA from "./ChildA";
 
 function App() {
-  const [color, setColor] = useState("green");
+  const [add, setAdd] = useState(0);
+  //Learning Function Will rerender b/c this process referential equality it will new function has been created in rerendering
+  //so to prevent this we use hook called useCallback
+  const Learning = useCallback(() => {
+    console.log("some operation");
+  }, []);
+
   return (
     <>
-      <h1>Default props in React JS</h1>
-      <select onChange={(e) => setColor(e.target.value)}>
-        <option value="pink">Pink</option>
-        <option value="blue">Blue</option>
-        <option value="orange">Orange</option>
-        <option value="red">Red</option>
-      </select>
-      <br></br>
-      <br></br>
-      <br></br>
-      <Clock color={color} />
+      <h1>Learning useCallback</h1>
+      <button onClick={() => setAdd(add + 1)}>Add</button>
+      {add}
+      <ChildA Learning={Learning} />
     </>
   );
 }
