@@ -1,32 +1,69 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import College from "./College";
 
 function App() {
-  const [add, setAdd] = useState(0);
-  const [minus, setMinus] = useState(100);
-  //useMemo hook return memoised value whereas useCallback return memoised function.
-  const multilpication = useMemo(
-    function multiply() {
-      console.log("****");
-      return add * 10;
+  const collegeData = [
+    {
+      name: "GEU",
+      city: "Dehradun",
+      email: "geu@gmail.com",
+      student: [
+        {
+          name: "Sakshi",
+          city: "Haldwani",
+          age: "24",
+        },
+        {
+          name: "Bruce",
+          city: "Delhi",
+          age: "20",
+        },
+      ],
     },
-    [add]
-  );
+    {
+      name: "DIT",
+      city: "Dehradun",
+      email: "dit@gmail.com",
+      student: [
+        {
+          name: "Peter",
+          city: "Haldwani",
+          age: "27",
+        },
+        {
+          name: "Bruv",
+          city: "Delhi",
+          age: "29",
+        },
+      ],
+    },
+    {
+      name: "UIT",
+      city: "Dehradun",
+      email: "uit@gmail.com",
+      student: [
+        {
+          name: "Bruce",
+          city: "Haldwani",
+          age: "20",
+        },
+        {
+          name: "Bruce",
+          city: "Delhi",
+          age: "20",
+        },
+      ],
+    },
+  ];
 
   return (
     <>
-      <h1>Learning useMemo Hook</h1>
-      <button onClick={() => setAdd(add + 1)}>Add</button>
-      {multilpication}
-      <br />
-      <br />
-      {add}
-      <br />
-      <br />
-      <button onClick={() => setMinus(minus - 1)}>Subtraction</button>
-      <br />
-      <br />
-      <br />
-      {minus}
+      <h1>Nested Looping With Component</h1>
+      {collegeData.map((college, index) => (
+        <div key={index}>
+          <College college={college} />
+        </div>
+      ))}
     </>
   );
 }
