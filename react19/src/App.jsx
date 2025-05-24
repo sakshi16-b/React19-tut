@@ -1,40 +1,49 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import styled from "styled-components";
+
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [data, setData] = useState(0);
-  useEffect(() => {
-    counterFunction();
-  }, [count]);
+  //1 method to write styled component
+  // const Heading = styled.h1`
+  //   color: red;
+  //   border: 1px solid red;
+  //   border-radius: 5px;
+  //   margin: 20px;
+  //   padding: 20px;
+  //  `;
 
-  useEffect(() => {
-    console.log("call once");
-  }, []);
+  //2 method to write styled Component
 
-  function counterFunction() {
-    console.log("counterFunction", count);
-  }
-  function callOnce() {
-    console.log("call once");
-  }
+  const Heading = styled.h1({
+    color: "red",
+    border: "1px solid green",
+    borderRadius: "5px",
+    margin: "20px",
+    padding: "20px",
+  });
 
+  const Btn = styled.button`
+    color: red;
+    background-color: #ddd;
+    border: 1px solid green;
+    margin: 20px;
+  `;
+  const SignupBtn = styled.button({
+    color: "red",
+    backgroundColor: "grey",
+  });
+  const Para = styled.p({
+    color: "red"
+})
   return (
     <>
-      <button onClick={() => setCount(count + 1)}>Counter</button>
-      <br></br>
-      <br></br>
-      <br></br>
-      <button onClick={() => setData(data + 1)}>Data</button>
-      <br></br>
-      <br></br>
-      Count: {count}
-      <hr></hr>
-      Data:{data}
+      <h1>Styled Components</h1>
+      <Heading>Hello Heading</Heading>
+      <Btn>Login</Btn>
+      <SignupBtn>SignUp</SignupBtn>
+      <Para>Hello I am Paragraph</Para>
     </>
   );
 }
-
 export default App;
