@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
@@ -40,7 +41,7 @@ function App() {
       <Alert variant={"danger"}>This is danger Alert</Alert>
       <Alert variant={"success"}>This is Success Alert</Alert>
       <button onClick={() => alert("Simple Btn")}>Simple Button</button>
-      <Button onClick={() => alert("Bootstrap Btn")}>Bootstrap Button</Button>
+      <Button onClick={() => alert("Bootstrap Btn")}>Bootstrap Button</Butto
     </>
   );
 }
