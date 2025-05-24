@@ -1,46 +1,34 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
-import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import { useRef } from "react";
 import "./App.css";
 
 function App() {
+  const inputRef = useRef();
+  const h1Ref = useRef();
+  function handleSubmit() {
+    console.log(inputRef);
+    inputRef.current.style.color = "red";
+    inputRef.current.placeholder = "enter password";
+  }
+
+  const toggleHandle = () => {
+    if (inputRef.current.style.display != "none")
+      inputRef.current.style.display = "none";
+    else {
+      inputRef.current.style.display = "inline";
+    }
+  };
+
+  function handleAdd() {
+  h1Ref.current.style.color="green"
+  }
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <Button>ADD</Button>
-      <Alert variant={"danger"}>This is danger Alert</Alert>
-      <Alert variant={"success"}>This is Success Alert</Alert>
-      <button onClick={() => alert("Simple Btn")}>Simple Button</button>
-      <Button onClick={() => alert("Bootstrap Btn")}>Bootstrap Button</Button>
+      <h1>useRef Hook(Uncontrolled Component)</h1>
+      <input type="text" placeholder="Enter username" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={toggleHandle}>Toggle</button>
+      <h1 ref={h1Ref}>Heading Ref</h1>
+      <button onClick={handleAdd}>Add</button>
     </>
   );
 }
