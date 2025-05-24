@@ -1,4 +1,5 @@
-import { useRef } from "react";
+
+import { useRef } from "reac
 
 function App() {
   const userRef = useRef();
@@ -18,7 +19,7 @@ function App() {
   };
 
   return (
-    <>
+    <
       <h1>Uncontrolled Component</h1>
 
       <form method="" action="post" onSubmit={handleForm}>
@@ -42,6 +43,7 @@ function App() {
         <br />
         <button>Submit with Ref</button>
       </form>
+
     </>
   );
 }
