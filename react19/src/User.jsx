@@ -1,10 +1,11 @@
+import { useFormStatus } from "react-dom";
 
-import { useFormStatus } from "react-dom"
-function App() {
+function User() {
   const handleSubmit = async () => {
-    await new Promise((res) => setTimeout(res, 5000));
+    await new Promise((res) => setTimeout(res, 2000));
     console.log("submitted");
   };
+
   function CustomerForm() {
     const { pending } = useFormStatus();
     console.log(pending);
@@ -13,22 +14,20 @@ function App() {
         <input type="text" placeholder="Enter username" />
         <br />
         <br />
-        <input type="text" placeholder="Enter Password" />
+        <input type="password" placeholder="Enter Password" />
         <br />
         <br />
-        <button disabled={pending}>
-          {pending ? "Submitting.." : "Submit"}
-        </button>
+        <button disabled={pending}>{pending ? "Submitting" : "Submit"}</button>
       </div>
     );
   }
- <h1>useFormStatus Hook in React JS 19</h1>
+
+  return (
+    <>
       <form action={handleSubmit}>
         <CustomerForm />
       </form>
-
     </>
   );
 }
-
-export default App;
+export default User;
