@@ -1,5 +1,5 @@
-import { useFormStatus } from "react-dom";
 
+import { useFormStatus } from "react-dom"
 function App() {
   const handleSubmit = async () => {
     await new Promise((res) => setTimeout(res, 5000));
@@ -22,13 +22,11 @@ function App() {
       </div>
     );
   }
-
-  return (
-    <>
-      <h1>useFormStatus Hook in React JS 19</h1>
+ <h1>useFormStatus Hook in React JS 19</h1>
       <form action={handleSubmit}>
         <CustomerForm />
       </form>
+
     </>
   );
 }
