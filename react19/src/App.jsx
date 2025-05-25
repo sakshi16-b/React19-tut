@@ -1,4 +1,8 @@
+
 import User from "./User";
+
+
+
 
 function App() {
   const displayName = (name) => {
@@ -13,7 +17,7 @@ function App() {
       <User displayName={displayName} name="Sakshi" getUser={getUser} />
       <User displayName={displayName} name="Anil" getUser={getUser} />
       <User displayName={displayName} name="Rahul" getUser={getUser} />
-      <User displayName={displayName} name="Nikhil" getUser={getUser} />
+      <User displayName={displayName} name="Nikhil" getUser={getUser}
     </>
   );
 }
