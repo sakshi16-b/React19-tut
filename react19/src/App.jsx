@@ -1,34 +1,22 @@
-import { useFormStatus } from "react-dom";
+import { useState, useTransition } from "react";
 
 function App() {
-  const handleSubmit = async () => {
-    await new Promise((res) => setTimeout(res, 5000));
-    console.log("submitted");
+  const [pending, startTransition] = useTransition();
+  const handleSubmit = () => {
+    startTransition(async () => {
+      await new Promise((res) => setTimeout(res, 5000));
+    });
   };
-  function CustomerForm() {
-    const { pending } = useFormStatus();
-    console.log(pending);
-    return (
-      <div>
-        <input type="text" placeholder="Enter username" />
-        <br />
-        <br />
-        <input type="text" placeholder="Enter Password" />
-        <br />
-        <br />
-        <button disabled={pending}>
-          {pending ? "Submitting.." : "Submit"}
-        </button>
-      </div>
-    );
-  }
 
   return (
     <>
-      <h1>useFormStatus Hook in React JS 19</h1>
-      <form action={handleSubmit}>
-        <CustomerForm />
-      </form>
+      <h1>useTransition Hook in React JS 19</h1>
+      {pending ? (
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3VxMXpjMW9mNmU5Mm13NmV5eWp1MWZmZTVrdTlybmJtNndzMjFjeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KG4PMQ0jyimywxNt8i/giphy.gif" />
+      ) : null}
+      <button disabled={pending} onClick={handleSubmit}>
+        Submit
+      </button>
     </>
   );
 }
