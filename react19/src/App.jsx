@@ -1,24 +1,36 @@
-import { useState, useTransition } from "react";
+import { useState } from "react";
 
 function App() {
-  const [pending, startTransition] = useTransition();
-  const handleSubmit = () => {
-    startTransition(async () => {
-      await new Promise((res) => setTimeout(res, 5000));
-    });
-  };
+  const [user, setUser] = useState(0);
+  const [users, setUsers] = useState([]);
 
+  const addUsers = () => {
+    setUsers([...users, user]);
+  };
   return (
     <>
-      <h1>useTransition Hook in React JS 19</h1>
-      {pending ? (
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3VxMXpjMW9mNmU5Mm13NmV5eWp1MWZmZTVrdTlybmJtNndzMjFjeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KG4PMQ0jyimywxNt8i/giphy.gif" />
-      ) : null}
-      <button disabled={pending} onClick={handleSubmit}>
-        Submit
-      </button>
+      <h1>Derived State in React Js</h1>
+      <h4>Total Users:{users.length}</h4>
+      <h4>Last User:{users[users.length - 1]}</h4>
+      <h4>Total Unique Users: {[...new Set(users)].length}</h4>
+      <br />
+
+      <input
+        type="text"
+        placeholder="Enter User"
+        onChange={(e) => setUser(e.target.value)}
+        value={user}
+      />
+      <br />
+      <br />
+      <button onClick={addUsers}>Add User</button>
+      <br />
+      <br />
+      <br />
+      {users.map((user, index) => {
+        return <h4 key={index}>{user}</h4>;
+      })}
     </>
   );
 }
-
 export default App;
