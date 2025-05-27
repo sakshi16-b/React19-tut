@@ -1,24 +1,25 @@
-import { useState, useTransition } from "react";
+//let guest = 0;//we should not pass like this it wiill show unexpected result.
+// Instead we should as a prop.
 
 function App() {
-  const [pending, startTransition] = useTransition();
-  const handleSubmit = () => {
-    startTransition(async () => {
-      await new Promise((res) => setTimeout(res, 5000));
-    });
-  };
-
   return (
     <>
-      <h1>useTransition Hook in React JS 19</h1>
-      {pending ? (
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3VxMXpjMW9mNmU5Mm13NmV5eWp1MWZmZTVrdTlybmJtNndzMjFjeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KG4PMQ0jyimywxNt8i/giphy.gif" />
-      ) : null}
-      <button disabled={pending} onClick={handleSubmit}>
-        Submit
-      </button>
+      <h1>Keeping Components Pure</h1>
+      <Cup guest={1} />
+      <Cup guest={2} />
+      <Cup guest={3} />
+      <Cup guest={4} />
+      <Cup guest={5} />
     </>
   );
 }
-
 export default App;
+
+const Cup = ({ guest }) => {
+  //  guest = guest + 1;
+  return (
+    <h4>
+      We have {guest} number of guests And we have to make {guest} of coffee.
+    </h4>
+  );
+};
