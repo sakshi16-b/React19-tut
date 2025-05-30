@@ -1,44 +1,45 @@
 import { useState } from "react";
 function App(){
-  const [data,setData]=useState({
-    name:"Sakshi",
-    address:{
-      city:"Haldwani",
-      country:"India",
+  const [data,setData]=useState(['Peter','Bruce','John','Frank' ])
+
+  const setName=(name)=>{
+    console.log(name)
+    data[data.length-1]=name 
+    setData([...data])//whenever we want update array in a state we have pass copy of data like...data
     }
-  })
+    
 
-  const handleName=(val)=>{
-   data.name=val
-   setData({...data})//we will create new object and then update data
-  }
-  const handleCity=(city)=>{
-    data.address.city =city
-    console.log(data)
-    setData({...data,address:{...data.address},city})
-  }
-  const handleCountry=(country)=>{
-    data.address.country=country
-    console.log(data)
-    setData({...data,address:{...data.address},country})
-  }
-  return(
-<>
-<h1>Updating Objects in State</h1>
-<input type="text" placeholder="Enter username" onChange={(e)=>handleName(e.target.value)}/>
-<br/>
-<input type="text" placeholder="Enter City" onChange={(e)=>handleCity(e.target.value)}/>
-<br/>
-<input type="text" placeholder="Enter Country" onChange={(e)=>handleCountry(e.target.value)}/>
-<br/>
+//Updating Objects in an Array
+const [dataDetails,setDataDetails]=useState([
+{name:"Sakshi",age:'30'},
+{name:"Dev",age:'20'},
+{name:"Rahul" ,age:'25'},
+])
+const setAge=(age)=>{
+    console.log(age)
+  dataDetails[dataDetails.length-1].age=age;
+setDataDetails([...dataDetails])
+    }
 
-<h2 >Name: {data.name}</h2><br/>
- <h2>City: {data.address.city}</h2><br/>
-<h2>Country: {data.address.country}</h2>
+return(
+  <>
+  <h1>Updating Array in a State</h1>
+  <input type="text" placeholder="Enter username" onChange={(e)=>setName(e.target.value)}/>
+  {
+    data.map((item,index)=>(
+    <h4 key={index}>{item}</h4>
+    ))
+ }
+ <hr/>
+   <input type="text" placeholder="Enter Age" onChange={(e)=>setAge(e.target.value)}/>
 
-</>
-  )
-}
+ {
+  dataDetails.map((item,index)=>(
+    <h4 index={index}>{item.name},{item.age}</h4>
+  ))
+ }
   
-
+  </>
+)
+}
 export default App;
