@@ -1,16 +1,44 @@
 import { useState } from "react";
-import AddUser from "./AddUser";
-import DisplayUser from "./DisplayUser";
+function App(){
+  const [data,setData]=useState({
+    name:"Sakshi",
+    address:{
+      city:"Haldwani",
+      country:"India",
+    }
+  })
 
-function App() {
-  const [user, setUser] = useState("");
-  return (
-    <>
-      <h1>Lifting State Up</h1>
-      <AddUser setUser={setUser} />
-      <DisplayUser user={user} />
-    </>
-  );
+  const handleName=(val)=>{
+   data.name=val
+   setData({...data})//we will create new object and then update data
+  }
+  const handleCity=(city)=>{
+    data.address.city =city
+    console.log(data)
+    setData({...data,address:{...data.address},city})
+  }
+  const handleCountry=(country)=>{
+    data.address.country=country
+    console.log(data)
+    setData({...data,address:{...data.address},country})
+  }
+  return(
+<>
+<h1>Updating Objects in State</h1>
+<input type="text" placeholder="Enter username" onChange={(e)=>handleName(e.target.value)}/>
+<br/>
+<input type="text" placeholder="Enter City" onChange={(e)=>handleCity(e.target.value)}/>
+<br/>
+<input type="text" placeholder="Enter Country" onChange={(e)=>handleCountry(e.target.value)}/>
+<br/>
+
+<h2 >Name: {data.name}</h2><br/>
+ <h2>City: {data.address.city}</h2><br/>
+<h2>Country: {data.address.country}</h2>
+
+</>
+  )
 }
+  
 
 export default App;
