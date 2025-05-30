@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 function App(){
   const [data,setData]=useState(['Peter','Bruce','John','Frank' ])
@@ -38,6 +39,11 @@ return(
     <h4 index={index}>{item.name},{item.age}</h4>
   ))
  }
+</>
+ )
+
+
+
   
   </>
 )
