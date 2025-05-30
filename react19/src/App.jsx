@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 function App(){
   const [data,setData]=useState({
@@ -37,8 +38,9 @@ function App(){
 <h2>Country: {data.address.country}</h2>
 
 </>
-  )
-}
+ )
+
+
   
 
 export default App;
