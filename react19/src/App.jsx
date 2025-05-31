@@ -1,3 +1,4 @@
+
 import Counter from "./Counter"; 
 
 function App(){
@@ -5,4 +6,6 @@ function App(){
     <Counter/>
   )
   }
+  </>
+
 export default App;
