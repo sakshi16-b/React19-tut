@@ -1,9 +1,7 @@
+
  import { useState } from "react";
 import College from "./College";
 import { SubjectContext } from "./context";
-
-
-
   function App(){
     const [subject,setSubject]=useState('')
 
@@ -26,4 +24,9 @@ import { SubjectContext } from "./context";
     
     )
   }
+
   export default App;
+
+
+
+
